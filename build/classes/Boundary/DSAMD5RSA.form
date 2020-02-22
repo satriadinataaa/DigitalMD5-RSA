@@ -374,7 +374,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder justification="2" title="Isi Pesan Pada File Ber Tanda Tangan"/>
+                    <TitledBorder justification="2" title="Nilai Pesan Pada File Ber Tanda Tangan"/>
                   </Border>
                 </Property>
               </Properties>

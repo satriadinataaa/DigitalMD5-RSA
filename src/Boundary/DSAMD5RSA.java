@@ -261,7 +261,7 @@ public class DSAMD5RSA extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Tanda Tangan Digital", jPanel1);
 
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Isi Pesan Pada File Ber Tanda Tangan", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nilai Pesan Pada File Ber Tanda Tangan", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         signature_source.setColumns(20);
         signature_source.setRows(5);
