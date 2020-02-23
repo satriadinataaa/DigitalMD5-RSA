@@ -72,6 +72,7 @@ public class DSAMD5RSA extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         public_key = new javax.swing.JLabel();
         n_value = new javax.swing.JLabel();
+        notif = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         bit_prime = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -185,25 +186,30 @@ public class DSAMD5RSA extends javax.swing.JFrame {
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Kunci Untuk Validasi", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
+        notif.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(n_value)
-                    .addComponent(public_key))
+                .addGap(75, 75, 75)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(notif)
+                    .addComponent(public_key)
+                    .addComponent(n_value))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(42, 42, 42)
+                .addComponent(notif)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(public_key)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(n_value)
-                .addContainerGap(159, Short.MAX_VALUE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
 
         jLabel1.setText("Panjang bit bilangan prima:");
@@ -456,7 +462,9 @@ public class DSAMD5RSA extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -503,17 +511,29 @@ public class DSAMD5RSA extends javax.swing.JFrame {
             System.out.println(message);
             System.out.println(messagedigest);
             RSA RSAku = new RSA();
-            int panjangbitprime = Integer.parseInt(bit_prime.getText());
-            BigInteger Signature[] = RSA.enkripsi(messagedigest,panjangbitprime);
-            public_key.setText("Kunci Publik = "+Signature[0]);
-
-            n_value.setText("Nilai n = "+Signature[2]);
-            message +="\n";
-            message+=Signature[1];
-            System.out.println(message);
-            BufferedWriter wr = new BufferedWriter(new FileWriter(destination_file.getText()));
-            wr.write(message);
-            wr.close();
+           
+            try{
+                int panjangbitprime = Integer.parseInt(bit_prime.getText());
+                BigInteger Signature[] = RSA.enkripsi(messagedigest,panjangbitprime);
+                public_key.setText("Kunci Publik = "+Signature[0]);
+                n_value.setText("Nilai n = "+Signature[2]);
+                message +="\n";
+                message+=Signature[1];
+                System.out.println(message);
+                BufferedWriter wr = new BufferedWriter(new FileWriter(destination_file.getText()));
+                wr.write(message);
+                wr.close();
+                notif.setForeground(Color.green);
+                notif.setText("Pemberian Tanda Tangan Sukses");
+            }
+            catch(Exception E){
+                notif.setForeground(Color.red);
+                notif.setText("Pemberian Tanda Tangan Gagal");
+            }
+           
+           
+          
+            
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(DSAMD5RSA.class.getName()).log(Level.SEVERE, null, ex);
@@ -717,6 +737,7 @@ public class DSAMD5RSA extends javax.swing.JFrame {
     private javax.swing.JLabel n_value;
     private javax.swing.JTextField nilai_kp;
     private javax.swing.JTextField nilai_n;
+    private javax.swing.JLabel notif;
     private javax.swing.JTextField otentikasi;
     private javax.swing.JLabel public_key;
     private javax.swing.JTextField signature;
