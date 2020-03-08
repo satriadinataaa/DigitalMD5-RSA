@@ -31,18 +31,18 @@ import javax.swing.filechooser.FileSystemView;
  *
  * @author PcKu-Asus
  */
-public class DSAMD5RSA extends javax.swing.JFrame {
+public class MainForm extends javax.swing.JFrame {
     static int panjangteks=0;
     /**
      * Creates new form Home
      */
-    public DSAMD5RSA() {
+    public MainForm() {
         this.setTitle("Digital Signature");
         this.setResizable(false);
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(DSAMD5RSA.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
         }
         initComponents();
         
@@ -94,6 +94,7 @@ public class DSAMD5RSA extends javax.swing.JFrame {
         integritas = new javax.swing.JTextField();
         otentikasi = new javax.swing.JTextField();
         reset = new javax.swing.JButton();
+        error_msg = new javax.swing.JLabel();
         verif = new javax.swing.JCheckBox();
         jLabel5 = new javax.swing.JLabel();
         signature = new javax.swing.JTextField();
@@ -209,7 +210,7 @@ public class DSAMD5RSA extends javax.swing.JFrame {
                 .addComponent(public_key)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(n_value)
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(170, Short.MAX_VALUE))
         );
 
         jLabel1.setText("Panjang bit bilangan prima:");
@@ -351,22 +352,29 @@ public class DSAMD5RSA extends javax.swing.JFrame {
             }
         });
 
+        error_msg.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(reset)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(l_otentikasi)
-                            .addComponent(l_integritas))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(integritas)
-                            .addComponent(otentikasi, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE))))
+                            .addComponent(reset)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(l_otentikasi)
+                                    .addComponent(l_integritas))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(integritas)
+                                    .addComponent(otentikasi, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)))))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(255, 255, 255)
+                        .addComponent(error_msg)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
@@ -382,7 +390,9 @@ public class DSAMD5RSA extends javax.swing.JFrame {
                     .addComponent(otentikasi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(reset)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(error_msg)
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         verif.setText("Lokasi File , nilai N, dan nilai Kunci Publik sudah benar");
@@ -451,23 +461,26 @@ public class DSAMD5RSA extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bt_integrity, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Pengecekan Integritas", jPanel3);
+        jTabbedPane1.addTab("Pengujian Integritas", jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
         );
 
         pack();
@@ -544,9 +557,9 @@ public class DSAMD5RSA extends javax.swing.JFrame {
             
 
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(DSAMD5RSA.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(DSAMD5RSA.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_Bt_SignatureActionPerformed
@@ -608,9 +621,6 @@ public class DSAMD5RSA extends javax.swing.JFrame {
             if(digest.equals(digest2)){
                 integritas.setForeground(Color.blue);
                 integritas.setText("Integritas Isi Pesan Terjamin");
-               
-                
-
             }
             else{
                 integritas.setForeground(Color.red);
@@ -620,28 +630,30 @@ public class DSAMD5RSA extends javax.swing.JFrame {
             
                 System.out.println("message_signature = "+message_signature);
                 System.out.println("Digest 2 ="+digest2);
-                BigInteger S = new BigInteger(signature.getText());
-                BigInteger kp = new BigInteger(nilai_kp.getText());
-                BigInteger n = new BigInteger(nilai_n.getText());
-                BigInteger mdd = new BigInteger(digest2);
-                System.out.println("mdd = "+mdd);
-                BigInteger haksen = RSA.dekripsi(S,kp,n);
-                BigInteger nilai2 = mdd.mod(n);
-                System.out.println("haksen = "+haksen);
-                System.out.println("nilai2 ="+nilai2);
-                if(haksen.equals(nilai2)){
-                    otentikasi.setForeground(Color.blue);
-                    otentikasi.setText("Otentikasi Pengirim Sukses");
-                }
-                else{
-                    otentikasi.setForeground(Color.red);
-                    otentikasi.setText("Otentikasi Pengirim Gagal");
-                }
+                    BigInteger S = new BigInteger(signature.getText());
+                    BigInteger kp = new BigInteger(nilai_kp.getText());
+                    BigInteger n = new BigInteger(nilai_n.getText());
+                    BigInteger mdd = new BigInteger(digest2);
+                    System.out.println("mdd = "+mdd);
+                    BigInteger haksen = RSA.dekripsi(S,kp,n);
+                    BigInteger nilai2 = mdd.mod(n);
+                    System.out.println("haksen = "+haksen);
+                    System.out.println("nilai2 ="+nilai2);
+                    if(haksen.equals(nilai2)){
+                        otentikasi.setForeground(Color.blue);
+                        otentikasi.setText("Otentikasi Pengirim Sukses");
+                    }
+                    else{
+                        otentikasi.setForeground(Color.red);
+                        otentikasi.setText("Otentikasi Pengirim Gagal");
+                    }
+                
+                
             
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(DSAMD5RSA.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(DSAMD5RSA.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_bt_integrityActionPerformed
 
@@ -684,21 +696,23 @@ public class DSAMD5RSA extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DSAMD5RSA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DSAMD5RSA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DSAMD5RSA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DSAMD5RSA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DSAMD5RSA().setVisible(true);
+                new MainForm().setVisible(true);
             }
         });
     }
@@ -711,6 +725,7 @@ public class DSAMD5RSA extends javax.swing.JFrame {
     private javax.swing.JButton bt_integrity;
     private javax.swing.JCheckBox cb;
     private javax.swing.JTextField destination_file;
+    private javax.swing.JLabel error_msg;
     private javax.swing.JTextField integritas;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
