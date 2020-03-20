@@ -104,6 +104,11 @@ public class MainForm extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sumber Teks", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         source_file.setEditable(false);
+        source_file.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                source_fileActionPerformed(evt);
+            }
+        });
 
         browse_source.setText("Telusuri");
         browse_source.addActionListener(new java.awt.event.ActionListener() {
@@ -585,6 +590,7 @@ public class MainForm extends javax.swing.JFrame {
        if(path != "wrongpath"){
            source_file.setText(path);
        }
+       
     }//GEN-LAST:event_browse_sourceActionPerformed
 
     private void verifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verifActionPerformed
@@ -678,6 +684,10 @@ public class MainForm extends javax.swing.JFrame {
         integritas.setText("");
         otentikasi.setText("");
     }//GEN-LAST:event_resetActionPerformed
+
+    private void source_fileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_source_fileActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_source_fileActionPerformed
 
     /**
      * @param args the command line arguments
