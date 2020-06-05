@@ -80,9 +80,6 @@ public class MainForm extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         signature_source = new javax.swing.JTextArea();
-        jPanel7 = new javax.swing.JPanel();
-        source_file2 = new javax.swing.JTextField();
-        bt_file = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         nilai_n = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -90,8 +87,6 @@ public class MainForm extends javax.swing.JFrame {
         bt_integrity = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         l_otentikasi = new javax.swing.JLabel();
-        l_integritas = new javax.swing.JLabel();
-        integritas = new javax.swing.JTextField();
         otentikasi = new javax.swing.JTextField();
         reset = new javax.swing.JButton();
         error_msg = new javax.swing.JLabel();
@@ -290,39 +285,7 @@ public class MainForm extends javax.swing.JFrame {
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-
-        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "File Tanpa Tanda Tangan", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
-
-        source_file2.setEditable(false);
-
-        bt_file.setText("Telusuri");
-        bt_file.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt_fileActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(source_file2)
-                .addGap(18, 18, 18)
-                .addComponent(bt_file)
-                .addGap(22, 22, 22))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(source_file2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bt_file))
-                .addContainerGap(25, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jLabel3.setText("N :");
@@ -342,12 +305,6 @@ public class MainForm extends javax.swing.JFrame {
         l_otentikasi.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         l_otentikasi.setText("Otentikasi Pengirim =");
 
-        l_integritas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        l_integritas.setText("Integritas Isi File =");
-
-        integritas.setEditable(false);
-        integritas.setForeground(new java.awt.Color(51, 255, 51));
-
         otentikasi.setEditable(false);
 
         reset.setText("Reset");
@@ -363,41 +320,34 @@ public class MainForm extends javax.swing.JFrame {
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(reset)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(l_otentikasi)
-                                    .addComponent(l_integritas))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(integritas)
-                                    .addComponent(otentikasi, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)))))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(reset))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
                         .addGap(255, 255, 255)
-                        .addComponent(error_msg)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(error_msg)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(l_otentikasi)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(otentikasi, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(22, 22, 22))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(l_integritas)
-                    .addComponent(integritas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(63, 63, 63)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(l_otentikasi)
-                    .addComponent(otentikasi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(otentikasi, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(reset)
-                .addGap(18, 18, 18)
+                .addGap(23, 23, 23)
                 .addComponent(error_msg)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         verif.setText("Lokasi File , nilai N, dan nilai Kunci Publik sudah benar");
@@ -418,7 +368,6 @@ public class MainForm extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -448,11 +397,9 @@ public class MainForm extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(60, 60, 60)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(77, 77, 77)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(signature, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -555,6 +502,8 @@ public class MainForm extends javax.swing.JFrame {
             catch(Exception E){
                 notif.setForeground(Color.red);
                 notif.setText("Pemberian Tanda Tangan Gagal");
+                public_key.setText("");
+                n_value.setText("");
             }
            
            
@@ -596,12 +545,12 @@ public class MainForm extends javax.swing.JFrame {
     private void verifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verifActionPerformed
         // TODO add your handling code here:
         if(verif.isSelected()){
-            String text1 = source_file2.getText();
+//            String text1 = source_file2.getText();
             String text2 = signature_source.getText();
             String n  = nilai_n.getText();
             String kp = nilai_kp.getText();
             String signatureku = signature.getText();
-            if(!text1.isEmpty() && !n.isEmpty() && !kp.isEmpty() &&!signatureku.isEmpty() ){
+            if(!n.isEmpty() && !kp.isEmpty() &&!signatureku.isEmpty() ){
                 bt_integrity.setEnabled(true);
                
             }
@@ -619,12 +568,12 @@ public class MainForm extends javax.swing.JFrame {
     private void bt_integrityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_integrityActionPerformed
 
         try {
-            BufferedReader fin = new BufferedReader(new FileReader(source_file2.getText()));
-            String message_asli = returnkalimat(fin);
-            String digest = HashMD5.getMd5(message_asli);
+            //BufferedReader fin = new BufferedReader(new FileReader(source_file2.getText()));
+            //String message_asli = returnkalimat(fin);
+            //String digest = HashMD5.getMd5(message_asli);
             String message_signature = signature_source.getText();
             String digest2 = HashMD5.getMd5(message_signature);
-            if(digest.equals(digest2)){
+            /*if(digest.equals(digest2)){
                 integritas.setForeground(Color.blue);
                 integritas.setText("Integritas Isi Pesan Terjamin");
             }
@@ -632,7 +581,7 @@ public class MainForm extends javax.swing.JFrame {
                 integritas.setForeground(Color.red);
                 integritas.setText("Integritas Isi Pesan Tidak Terjamin");
 
-            }
+            }*/
             
                 System.out.println("message_signature = "+message_signature);
                 System.out.println("Digest 2 ="+digest2);
@@ -647,41 +596,23 @@ public class MainForm extends javax.swing.JFrame {
                     System.out.println("nilai2 ="+nilai2);
                     if(haksen.equals(nilai2)){
                         otentikasi.setForeground(Color.blue);
-                        otentikasi.setText("Otentikasi Pengirim Sukses");
+                        otentikasi.setText("Integritas Isi Pesan Terjamin & Otentikasi Pengirim Sukses");
                     }
                     else{
                         otentikasi.setForeground(Color.red);
-                        otentikasi.setText("Otentikasi Pengirim Gagal");
+                        otentikasi.setText("Integritas Isi Pesan Tidak Terjamin & Otentikasi Pengirim Gagal");
                     }
                 
                 
             
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
+        }  catch (Exception e) {
+            System.out.println(e);
         }
     }//GEN-LAST:event_bt_integrityActionPerformed
 
-    private void bt_fileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_fileActionPerformed
-        // TODO add your handling code here:
-        JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("TEXT FILES","txt","text");
-        jfc.setFileFilter(filter);
-        jfc.setAcceptAllFileFilterUsed(false);
-        int returnValue = jfc.showOpenDialog(null);
-
-        if (returnValue == JFileChooser.APPROVE_OPTION) {
-            File selectedFile = jfc.getSelectedFile();
-            String path = selectedFile.getAbsolutePath();
-            source_file2.setText(path);
-
-        }
-    }//GEN-LAST:event_bt_fileActionPerformed
-
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
         // TODO add your handling code here:
-        integritas.setText("");
+        //integritas.setText("");
         otentikasi.setText("");
     }//GEN-LAST:event_resetActionPerformed
 
@@ -731,12 +662,10 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JButton Bt_Signature;
     private javax.swing.JTextField bit_prime;
     private javax.swing.JButton browse_source;
-    private javax.swing.JButton bt_file;
     private javax.swing.JButton bt_integrity;
     private javax.swing.JCheckBox cb;
     private javax.swing.JTextField destination_file;
     private javax.swing.JLabel error_msg;
-    private javax.swing.JTextField integritas;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -749,11 +678,9 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JLabel l_integritas;
     private javax.swing.JLabel l_otentikasi;
     private javax.swing.JLabel n_value;
     private javax.swing.JTextField nilai_kp;
@@ -765,7 +692,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JTextField signature;
     private javax.swing.JTextArea signature_source;
     private javax.swing.JTextField source_file;
-    private javax.swing.JTextField source_file2;
     private javax.swing.JCheckBox verif;
     // End of variables declaration//GEN-END:variables
 }
