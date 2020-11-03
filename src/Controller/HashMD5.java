@@ -14,14 +14,19 @@ import java.security.NoSuchAlgorithmException;
  * @author PcKu-Asus
  */
 public class HashMD5 {
+    
+    // init buffer frow low order bit
     private static final int   INIT_A     = 0x67452301;
     private static final int   INIT_B     = (int) 0xEFCDAB89L;
     private static final int   INIT_C     = (int) 0x98BADCFEL;
     private static final int   INIT_D     = 0x10325476;
+    
+    //left shift
     private static final int[] SHIFT_AMTS = { 7, 12, 17, 22, 5, 9, 14, 20, 4,
             11, 16, 23, 6, 10, 15, 21    };
     private static final int[] TABLE_T    = new int[64];
     
+    // init T Table
     static
     {
         for (int i = 0; i < 64; i++){
