@@ -44,6 +44,7 @@ public class HashMD5 {
         int totalLen = numBlocks << 6;
         
         byte[] paddingBytes = new byte[totalLen - messageLenBytes];
+        // init - 128
         paddingBytes[0] = (byte) 0x80;
         long messageLenBits = (long) messageLenBytes << 3;
         
@@ -51,9 +52,11 @@ public class HashMD5 {
         {
             
             paddingBytes[paddingBytes.length - 8 + i] = (byte) messageLenBits;
+            //messageLenBits = Messagelenbits >>> 8
             messageLenBits >>>= 8;
             
         }
+        //Giving Padding
         int a = INIT_A;
         int b = INIT_B;
         int c = INIT_C;
@@ -63,6 +66,7 @@ public class HashMD5 {
         {
             int index = i << 6;
             for (int j = 0; j < 64; j++, index++)
+                //if index < msglenbbytes = take msg index
                 buffer[j >>> 2] = ((int) ((index < messageLenBytes) ? message[index]
                         : paddingBytes[index - messageLenBytes]) << 24)
                         | (buffer[j >>> 2] >>> 8);
@@ -115,7 +119,7 @@ public class HashMD5 {
        
         byte[] md5 = new byte[16];
         int count = 0;
-        
+        //Rearrange
         for (int i = 0; i < 4; i++)
         {
             int n = (i == 0) ? a : ((i == 1) ? b : ((i == 2) ? c : d));
@@ -131,7 +135,7 @@ public class HashMD5 {
  
     public static String toHexString(byte[] b)
     {
-       
+       //convert to String bit 10
         BigInteger ku = new BigInteger(1,b);
        
         String hasilhash10 =  ku.toString(10);
