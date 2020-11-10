@@ -273,8 +273,6 @@ public class MainForm extends javax.swing.JFrame {
         signature_source.setColumns(20);
         signature_source.setRows(5);
         jScrollPane1.setViewportView(signature_source);
-        signature_source.setLineWrap(true);
-        signature_source.setWrapStyleWord(true);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -480,6 +478,8 @@ public class MainForm extends javax.swing.JFrame {
         try {
             BufferedReader fin = new BufferedReader(new FileReader(source_file.getText()));
             String message = returnkalimat(fin);
+            message = message.replace("\r\n", "\n");
+    message=message.replace("\r", "\n");
             String messagedigest=HashMD5.getMd5(message);
             System.out.println(message);
             System.out.println(messagedigest);
@@ -577,6 +577,8 @@ public class MainForm extends javax.swing.JFrame {
             //String message_asli = returnkalimat(fin);
             //String digest = HashMD5.getMd5(message_asli);
             String message_signature = signature_source.getText();
+            message_signature = message_signature.replace("\r\n", "\n");
+            message_signature=message_signature.replace("\r", "\n");
             String digest2 = HashMD5.getMd5(message_signature);
             /*if(digest.equals(digest2)){
                 integritas.setForeground(Color.blue);

@@ -424,9 +424,6 @@
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
                       </Properties>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="signature_source.setLineWrap(true);&#xa;signature_source.setWrapStyleWord(true);"/>
-                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
