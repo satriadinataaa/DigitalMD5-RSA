@@ -273,6 +273,8 @@ public class MainForm extends javax.swing.JFrame {
         signature_source.setColumns(20);
         signature_source.setRows(5);
         jScrollPane1.setViewportView(signature_source);
+        signature_source.setLineWrap(true);
+        signature_source.setWrapStyleWord(true);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
