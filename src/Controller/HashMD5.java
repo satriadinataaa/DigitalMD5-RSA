@@ -38,9 +38,9 @@ public class HashMD5 {
     public static byte[] computeMD5(byte[] message)
     {
         int messageLenBytes = message.length;
-        
+        // tahap 1
         int numBlocks = ((messageLenBytes + 8) >>> 6) + 1;
-      
+        //tahap 2
         int totalLen = numBlocks << 6;
         
         byte[] paddingBytes = new byte[totalLen - messageLenBytes];
@@ -56,17 +56,18 @@ public class HashMD5 {
             messageLenBits >>>= 8;
             
         }
-        //Giving Padding
+        //Giving Padding tahap 3
         int a = INIT_A;
         int b = INIT_B;
         int c = INIT_C;
         int d = INIT_D;
         int[] buffer = new int[16];
+        //tahap 4
         for (int i = 0; i < numBlocks; i++)
         {
             int index = i << 6;
             for (int j = 0; j < 64; j++, index++)
-                //if index < msglenbbytes = take msg index
+                //if index < msglenbbytes = ambil msg index
                 buffer[j >>> 2] = ((int) ((index < messageLenBytes) ? message[index]
                         : paddingBytes[index - messageLenBytes]) << 24)
                         | (buffer[j >>> 2] >>> 8);

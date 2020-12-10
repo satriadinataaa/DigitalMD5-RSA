@@ -39,7 +39,7 @@ public class RSA {
         BigInteger r,temp;
         BigInteger nol = new BigInteger("0");
         int compare = e.compareTo(totient);
-                
+        
         if(compare == -1){
             temp = e;
             e=totient;
@@ -53,9 +53,14 @@ public class RSA {
         return e;
     }
     public static BigInteger hitung_pvt(BigInteger e,BigInteger totient){
+        
+        // rumus awal e * d = 1 + k totient(n)
+        //disederhanakan jadi d = 1+k(totient(n)) dibagi e
+        //nilai k dicoba2
         BigInteger k,h,d;
         BigInteger satu = new BigInteger("1");
         k = new BigInteger("1");
+        
         while(true){
             d = k.multiply(e);
             h = d.mod(totient);
@@ -74,7 +79,7 @@ public class RSA {
         BigInteger test;
         BigInteger satu = new BigInteger("1");
         BigInteger p = GeneratePrime(panjangbitprime);
-       BigInteger q = GeneratePrime(panjangbitprime);
+        BigInteger q = GeneratePrime(panjangbitprime);
         System.out.println("P ="+p+" Q= "+q);
         BigInteger n = hitungN(p,q);
         System.out.println("N = "+n);

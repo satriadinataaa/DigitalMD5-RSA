@@ -215,7 +215,7 @@ public class MainForm extends javax.swing.JFrame {
 
         jLabel1.setText("Panjang bit bilangan prima:");
 
-        bit_prime.setText("4");
+        bit_prime.setText("7");
 
         jLabel2.setText("*Semakin panjang bit akan semakin lama komputasi");
 
@@ -615,7 +615,8 @@ public class MainForm extends javax.swing.JFrame {
                 
             
         }  catch (Exception e) {
-            System.out.println(e);
+             otentikasi.setForeground(Color.red);
+             otentikasi.setText("Nilai Masukan Tidak Valid");
         }
     }//GEN-LAST:event_bt_integrityActionPerformed
 
